@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Guest List Manager</title>
+    <!-- css file -->
     <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
+    <!-- form for the guests -->
     <div class="container">
         <h1>Guest List</h1>
         <form id="guest-Form">
@@ -16,8 +18,16 @@
            <button type="submit">Add Guest</button>
 
         </form>
-        <ul id="Guest List"></ul>
+        <!-- guest categor ...how the guest is categorized -->
+        <select id="Guest-Category">
+            <option value="Friend">Friend</option>
+            <option value="Family">Family</option>
+            <option value="Colleague">Colleague</option>
+        </select>
+        <!-- displays the guest list -->
+        <ul id="Guest-List"></ul>
     </div>
+    <!-- javascript file -->
 <script src="script.js"></script>
 </body>
 </html>
