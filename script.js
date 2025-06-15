@@ -1,6 +1,7 @@
 const form = document.getElementById("guest-Form");
 const input = document.getElementById("GuestName");
 const guestlist = document.getElementById("Guest-List");
+const categorySelect = document.getElementById("Guest-Category"); 
 
 let guests = [];
 
@@ -9,6 +10,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const name = input.value.trim();
+  const category = categorySelect.value;
   if (!name) return;
   if (guests.length >= 10) {
     alert("Guest list limit reached (10 guests)");
@@ -19,6 +21,7 @@ form.addEventListener("submit", (e) => {
     id: Date.now(),
     name,
     attending: true,
+    category
   };
 
   guests.push(guest);
@@ -33,12 +36,12 @@ function renderGuests() {
     const list = document.createElement("li");
 
     const span = document.createElement("span");
-    span.textContent = `${guest.name} (${guest.attending ? "Attending" : "Not Attending"})`;
+    span.textContent = `${guest.name} - ${guest.category} (${guest.attending ? "Attending" : "Not Attending"})`;
 
     span.className = guest.attending ? "Attending" : "Not Attending";
 
     const toggleButton = document.createElement("button");
-    toggleButton.textContent = "Toggle RSVP";
+    toggleButton.textContent = "RSVP";
     toggleButton.onclick = () => {
       guest.attending = !guest.attending;
       renderGuests();

@@ -1,0 +1,20 @@
+body {
+    font-family: 'Gill Sans', sans-serif;
+    margin: 40px;
+    background-color: beige;
+}
+
+li {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 {
+    font-family: Arial, Helvetica;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
