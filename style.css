@@ -9,6 +9,7 @@ li {
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
 }
 
 h1 {
@@ -17,4 +18,57 @@ h1 {
     font-style: italic;
     font-weight: bolder;
 }
+form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
 
+button.RSVP-btn{
+    background-color: lightblue;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px 32px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#Guest-List li button:last-child {
+    background-color: lightgrey;
+    color: black;
+    margin-left: 5px;
+}
+@media (max-width:460px) {
+    form {
+        flex-direction: column;
+    }
+}
+
+#guest-category button.active {
+    background-color: grey;
+    color: white;
+    border-color: black;
+}
+
+#guest-category button {
+    cursor: pointer;
+}
+
+.attending {
+    color: rgb(72, 155, 72);
+    font-weight: bold;
+}
+
+.not-attending {
+    color: rgb(216, 129, 129);
+    font-weight: bold;
+}

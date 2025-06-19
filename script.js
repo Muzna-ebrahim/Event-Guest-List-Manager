@@ -23,7 +23,8 @@ form.addEventListener("submit", (e) => {
     id: Date.now(),
     name,
     attending: true,
-    category
+    category,
+    timestamp : new Date().toLocaleString()
   };
 
   guests.push(guest);
@@ -36,6 +37,9 @@ form.addEventListener("submit", (e) => {
  selectCategory.forEach((btn) => {
     btn.addEventListener("click", () => {
     selectedCategory = btn.getAttribute("data-category");
+//to reove then to add respectively for the buttons 
+    selectCategory.forEach(b =>b.classList.remove("active"));
+    btn.classList.add("active")
  });
  });
 
@@ -47,12 +51,16 @@ function renderGuests() {
     const list = document.createElement("li");
 
     const span = document.createElement("span");
-    span.textContent = `${guest.name} - ${guest.category} (${guest.attending ? "Attending" : "Not Attending"})`;
-
-    span.className = guest.attending ? "Attending" : "Not Attending";
+    span.innerHTML = `
+    <strong>${guest.name}</strong> - ${guest.category}
+    <small>[${guest.timestamp}]</small>
+    <em class ="${guest.attending ? "attending" : "not-attending"}" >
+    (${guest.attending ? "Attending" : "Not Attending"}) </em>
+    `;
 
     const toggleButton = document.createElement("button");
     toggleButton.textContent = guest.attending ? "Mark Not Attending": "Mark Attending";
+    toggleButton.className = "RSVP-btn"
     toggleButton.onclick = () => {
       guest.attending = !guest.attending;
       renderGuests();
